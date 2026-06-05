@@ -1,0 +1,5 @@
+ifconfig eth0 192.168.1.254 netmask 255.255.255.0 up
+mkdir -p /shared_files
+dd if=/dev/zero of=/shared_files/projeto_alex.mp4 bs=1M count=10
+nc -lk -p 6969 < /shared_files/projeto_alex.mp4 &
+tcpdump -i eth0 -s 0 -w /shared_files/tracker_capture.pcap &
